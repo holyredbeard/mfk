@@ -1,0 +1,15 @@
+{
+  "name": "monsterasfk-netlify-functions",
+  "version": "1.0.0",
+  "description": "Netlify functions for monsterasfk site, including Decap CMS proxy",
+  "main": "index.js",
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1"
+  },
+  "author": "",
+  "license": "ISC",
+  "dependencies": {
+    "@octokit/rest": "^20.0.0",
+    "node-fetch": "^3.3.0"
+  }
+} 

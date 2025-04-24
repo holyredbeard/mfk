@@ -1,0 +1,9 @@
+[build]
+  # Directory containing the deploy-ready HTML files and assets
+  publish = "." # Assuming your index.html is in the root
+  # Directory where Netlify Functions live
+  functions = "netlify/functions"
+
+[functions]
+  # Ensure Node.js runtime is used for the functions
+  node_bundler = "esbuild" 

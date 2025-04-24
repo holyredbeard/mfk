@@ -1,6 +1,7 @@
 backend:
-  name: git-gateway
-  branch: master # Eller main om din huvudbranch heter så
+  name: proxy # Use the Netlify Function proxy
+  proxy_url: /.netlify/functions/decap-proxy # Path to the function
+  branch: master # Or main, should match your GITHUB_BRANCH env var if set
 
 # Media och Public Folders för bilduppladdning (om det behövs senare)
 media_folder: "assets/uploads"
