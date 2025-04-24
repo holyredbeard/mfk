@@ -1,0 +1,43 @@
+backend:
+  name: git-gateway
+  branch: master # Eller main om din huvudbranch heter så
+
+# Media och Public Folders för bilduppladdning (om det behövs senare)
+media_folder: "assets/uploads"
+public_folder: "/assets/uploads"
+
+collections:
+  # Filbaserad samling för evenemang
+  - name: "events_file"
+    label: "Evenemang (Alla)"
+    label_singular: "Evenemanglista"
+    description: "Hantera listan med kommande evenemang."
+    files:
+      - file: "_data/events.json"
+        label: "Kommande Evenemang"
+        name: "events"
+        fields:
+          - label: "Evenemangslista"
+            name: "event_items"
+            widget: "list"
+            summary: "{{fields.title}} - {{fields.day}} {{fields.month}}"
+            fields:
+              # Fält för varje evenemang i listan
+              - { label: "Titel", name: "title", widget: "string" }
+              - { label: "Dag (siffra)", name: "day", widget: "number", value_type: "int", min: 1, max: 31 }
+              - { label: "Månad (förkortning, t.ex. OKT)", name: "month", widget: "string" }
+              - { label: "Tid (t.ex. Kl. 18:00 - 20:00)", name: "time", widget: "string" }
+              - { label: "Beskrivning", name: "description", widget: "text" }
+              - { label: "Knapptext (t.ex. Anmäl dig)", name: "buttonText", widget: "string" }
+              # Vi behöver inget ID här, CMS hanterar det internt för listan
+
+# Future collections can be added here, e.g.:
+# - name: "pages"
+#   label: "Sidor"
+#   files:
+#     - file: "om-oss.md"
+#       label: "Om oss Sida"
+#       name: "om_oss"
+#       fields:
+#         - { label: "Rubrik", name: "title", widget: "string" }
+#         - { label: "Innehåll", name: "body", widget: "markdown" } 

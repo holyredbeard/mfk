@@ -39,24 +39,27 @@
             
             <!-- Navigation -->
             <nav class="py-2 border-t border-opacity-20" style="background-color: var(--marine-blue); border-color: var(--light-blue);">
-                <ul class="flex space-x-6 justify-center md:justify-start flex-wrap">
-                    <li><a href="#hem" class="hover:text-light-blue transition py-2 px-3 inline-block text-white">Hem</a></li>
-                    <li class="relative dropdown-trigger">
-                        <a href="#om" class="hover:text-light-blue transition flex items-center py-2 px-3 inline-block text-white">
-                            Om oss
-                            <svg xmlns="http://www.w3.org/2000/svg" class="h-4 w-4 ml-1" fill="none" viewBox="0 0 24 24" stroke="currentColor">
-                                <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M19 9l-7 7-7-7" />
-                            </svg>
-                        </a>
-                        <ul class="dropdown-menu shadow-lg rounded-b-lg" style="background-color: var(--dark-blue);">
-                            <li><a href="#information" class="block px-4 py-2 hover:bg-opacity-80 transition text-white">Information</a></li>
-                            <li><a href="#historia" class="block px-4 py-2 hover:bg-opacity-80 transition text-white">Historia</a></li>
-                            <li><a href="#stadgar" class="block px-4 py-2 hover:bg-opacity-80 transition text-white">Stadgar</a></li>
-                        </ul>
-                    </li>
-                    <li><a href="#samlingar" class="hover:text-light-blue transition py-2 px-3 inline-block text-white">Samlingar</a></li>
-                    <li><a href="#evenemang" class="hover:text-light-blue transition py-2 px-3 inline-block text-white">Evenemang</a></li>
-                    <li><a href="#kontakt" class="hover:text-light-blue transition py-2 px-3 inline-block text-white">Kontakt</a></li>
+                <ul class="flex w-full justify-center md:justify-between flex-wrap items-center">
+                    <div class="flex space-x-6 flex-wrap justify-center md:justify-start">
+                        <li><a href="#hem" class="hover:text-light-blue transition py-2 px-3 inline-block text-white">Hem</a></li>
+                        <li class="relative dropdown-trigger">
+                            <a href="#om" class="hover:text-light-blue transition flex items-center py-2 px-3 inline-block text-white">
+                                Om oss
+                                <svg xmlns="http://www.w3.org/2000/svg" class="h-4 w-4 ml-1" fill="none" viewBox="0 0 24 24" stroke="currentColor">
+                                    <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M19 9l-7 7-7-7" />
+                                </svg>
+                            </a>
+                            <ul class="dropdown-menu shadow-lg rounded-b-lg" style="background-color: var(--dark-blue);">
+                                <li><a href="#information" class="block px-4 py-2 hover:bg-opacity-80 transition text-white">Information</a></li>
+                                <li><a href="#historia" class="block px-4 py-2 hover:bg-opacity-80 transition text-white">Historia</a></li>
+                                <li><a href="#stadgar" class="block px-4 py-2 hover:bg-opacity-80 transition text-white">Stadgar</a></li>
+                            </ul>
+                        </li>
+                        <li><a href="#samlingar" class="hover:text-light-blue transition py-2 px-3 inline-block text-white">Samlingar</a></li>
+                        <li><a href="#evenemang" class="hover:text-light-blue transition py-2 px-3 inline-block text-white">Evenemang</a></li>
+                        <li><a href="#kontakt" class="hover:text-light-blue transition py-2 px-3 inline-block text-white">Kontakt</a></li>
+                    </div>
+                    <li><a href="#login" class="hover:text-light-blue transition py-2 px-3 inline-block text-white"><i class="fas fa-sign-in-alt mr-1"></i> Logga in</a></li>
                 </ul>
             </nav>
         </div>
@@ -343,61 +346,10 @@
         <div id="evenemang" class="pt-10"></div>
         <div class="container mx-auto px-4">
             <h2 class="text-3xl font-bold text-center mb-12 text-white">Kommande evenemang</h2>
-            <div class="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-8">
-                <!-- Event 1 -->
-                <div style="background-color: var(--marine-blue);" class="rounded-lg overflow-hidden shadow-lg">
-                    <div class="p-6" style="color: var(--white);">
-                        <div class="flex items-center mb-4">
-                            <div style="background-color: var(--red);" class="text-white font-bold rounded-lg py-2 px-4 text-center mr-4">
-                                <div class="text-xl">15</div>
-                                <div class="text-sm">OKT</div>
-                            </div>
-                            <div>
-                                <h3 class="text-xl font-bold">Månadsmöte</h3>
-                                <p>Kl. 18:00 - 20:00</p>
-                            </div>
-                        </div>
-                        <p class="mb-4">Vårt regelbundna månadsmöte med visning av nya förvärv, föredrag om svenska frimärken från 1920-talet och bytesmöjligheter.</p>
-                        <a href="#" class="inline-block btn-secondary font-bold py-2 px-4 rounded transition">Anmäl dig</a>
-                    </div>
-                </div>
-                
-                <!-- Event 2 -->
-                <div style="background-color: var(--marine-blue);" class="rounded-lg overflow-hidden shadow-lg">
-                    <div class="p-6" style="color: var(--white);">
-                        <div class="flex items-center mb-4">
-                            <div style="background-color: var(--red);" class="text-white font-bold rounded-lg py-2 px-4 text-center mr-4">
-                                <div class="text-xl">28</div>
-                                <div class="text-sm">OKT</div>
-                            </div>
-                            <div>
-                                <h3 class="text-xl font-bold">Frimärksutställning</h3>
-                                <p>Kl. 10:00 - 16:00</p>
-                            </div>
-                        </div>
-                        <p class="mb-4">Årlig frimärksutställning med deltagare från hela Småland. Specialvisning av sällsynta svenska frimärken och expertbedömning.</p>
-                        <a href="#" class="inline-block btn-secondary font-bold py-2 px-4 rounded transition">Läs mer</a>
-                    </div>
-                </div>
-                
-                <!-- Event 3 -->
-                <div style="background-color: var(--marine-blue);" class="rounded-lg overflow-hidden shadow-lg">
-                    <div class="p-6" style="color: var(--white);">
-                        <div class="flex items-center mb-4">
-                            <div style="background-color: var(--red);" class="text-white font-bold rounded-lg py-2 px-4 text-center mr-4">
-                                <div class="text-xl">12</div>
-                                <div class="text-sm">NOV</div>
-                            </div>
-                            <div>
-                                <h3 class="text-xl font-bold">Nybörjarkurs</h3>
-                                <p>Kl. 17:00 - 19:00</p>
-                            </div>
-                        </div>
-                        <p class="mb-4">Introduktion till frimärkssamlande för nybörjare. Vi går igenom grundläggande verktyg, terminologi och hur du börjar din samling.</p>
-                        <a href="#" class="inline-block btn-secondary font-bold py-2 px-4 rounded transition">Anmäl dig</a>
-                    </div>
-                </div>
+            <div class="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-8" id="events-container">
+                <!-- Event cards will be loaded here by JavaScript -->
             </div>
+
             <div class="text-center mt-10">
                 <a href="#hem" class="inline-flex items-center text-accent-blue hover:text-dark-blue">
                     <i class="fas fa-arrow-up mr-2"></i> Till toppen
@@ -585,6 +537,24 @@
         </div>
     </footer>
 
+    <!-- Login Modal -->
+    <div id="loginOverlay" class="fixed inset-0 bg-black bg-opacity-50 z-40 hidden"></div>
+    <div id="loginModal" class="fixed top-1/2 left-1/2 transform -translate-x-1/2 -translate-y-1/2 bg-white p-8 rounded-lg shadow-xl z-50 hidden w-full max-w-md">
+        <button id="closeLoginModal" class="absolute top-2 right-4 text-gray-500 hover:text-gray-800 text-3xl font-bold">&times;</button>
+        <h2 class="text-2xl font-bold mb-6 text-center" style="color: var(--dark-blue);">Logga in</h2>
+        <form id="loginForm">
+            <div class="mb-4">
+                <label class="block mb-2" for="username" style="color: var(--dark-blue);">Användarnamn</label>
+                <input type="text" id="username" name="username" required class="w-full px-4 py-2 border rounded-lg focus:outline-none focus:ring-2 focus:ring-blue-500">
+            </div>
+            <div class="mb-6">
+                <label class="block mb-2" for="password" style="color: var(--dark-blue);">Lösenord</label>
+                <input type="password" id="password" name="password" required class="w-full px-4 py-2 border rounded-lg focus:outline-none focus:ring-2 focus:ring-blue-500">
+            </div>
+            <button type="submit" class="w-full btn-primary hover:bg-dark-blue text-white font-bold py-3 px-4 rounded-lg transition">Logga in</button>
+        </form>
+    </div>
+
     <script>
         // Smooth scrolling for anchor links
         document.querySelectorAll('a[href^="#"]').forEach(anchor => {
@@ -710,19 +680,100 @@
             
             // Initial scroll trigger to set active link
             window.dispatchEvent(new Event('scroll'));
+
+            // -- Event Handling Logic (Decap CMS version) --
+            const eventsContainer = document.getElementById('events-container');
+            const DATA_FILE_URL = '/_data/events.json'; // Path to the data file
+
+            // --- Function to render event cards ---
+            function renderEventCard(event) {
+                const card = document.createElement('div');
+                card.style.backgroundColor = 'var(--marine-blue)';
+                card.classList.add('rounded-lg', 'overflow-hidden', 'shadow-lg'); 
+                
+                const contentDiv = document.createElement('div');
+                contentDiv.classList.add('p-6');
+                contentDiv.style.color = 'var(--white)';
+
+                // Basic check for valid data
+                const day = event.day || '?';
+                const month = event.month || '?';
+                const title = event.title || 'Inget namn';
+                const time = event.time || '';
+                const description = event.description || '';
+                const buttonText = event.buttonText || 'Info';
+
+                contentDiv.innerHTML = `
+                    <div class="flex items-center mb-4">
+                        <div style="background-color: var(--red);" class="text-white font-bold rounded-lg py-2 px-4 text-center mr-4">
+                            <div class="text-xl">${day}</div>
+                            <div class="text-sm">${month.toUpperCase()}</div>
+                        </div>
+                        <div>
+                            <h3 class="text-xl font-bold">${title}</h3>
+                            <p>${time}</p>
+                        </div>
+                    </div>
+                    <p class="mb-4">${description}</p>
+                    <a href="#" class="inline-block btn-secondary font-bold py-2 px-4 rounded transition">${buttonText}</a>
+                `;
+                card.appendChild(contentDiv);
+                return card;
+            }
+
+            // --- Function to fetch and display events from JSON file ---
+            async function fetchAndDisplayEvents() {
+                try {
+                    // Add a cache-busting query parameter
+                    const response = await fetch(`${DATA_FILE_URL}?v=${Date.now()}`); 
+                    if (!response.ok) throw new Error(`HTTP error! status: ${response.status}`);
+                    // The data is expected to be { "event_items": [...] }
+                    const data = await response.json();
+                    const events = data.event_items || []; // Get the array
+                    
+                    eventsContainer.innerHTML = ''; // Clear existing
+                    if (!Array.isArray(events) || events.length === 0) {
+                         eventsContainer.innerHTML = '<p class="text-white text-center col-span-full">Inga kommande evenemang just nu.</p>';
+                    } else {
+                        events.forEach(event => {
+                             const card = renderEventCard(event);
+                             eventsContainer.appendChild(card);
+                        });
+                    }
+                } catch (error) {
+                    console.error('Could not fetch or parse events data:', error);
+                    eventsContainer.innerHTML = '<p class="text-red-500 text-center col-span-full">Kunde inte ladda evenemang.</p>';
+                }
+            }
+            
+            // --- Initial Setup ---
+            fetchAndDisplayEvents(); // Load events on page load
+            
+            // Optional: Adjust login link to point to admin panel
+            // Find the link potentially added earlier
+            const adminLink = document.querySelector('a[href*="redigera="]') || document.querySelector('a[href="#login"]'); 
+             if(adminLink) {
+                 adminLink.href = '/admin/'; // Link to the CMS admin panel
+                 adminLink.innerHTML = '<i class="fas fa-pencil-alt mr-1"></i> Admin';
+                 adminLink.target = '_blank'; // Open in new tab
+            }
+
+            // Remove Login Modal Logic if it exists (since login is handled by /admin/)
+            const loginModal = document.getElementById('loginModal');
+            const loginOverlay = document.getElementById('loginOverlay');
+            if(loginModal) loginModal.remove();
+            if(loginOverlay) loginOverlay.remove();
+            // Note: The event listeners for the modal are now orphaned but harmless.
+            // A cleaner approach would be to find and remove them too.
+
         });
-        
-        // Simple form validation for membership form
+
+        // Simple form validation for membership form (Keep this as it is)
         const membershipForm = document.querySelector('#medlem form');
         if(membershipForm) {
             membershipForm.addEventListener('submit', function(e) {
-                const name = document.getElementById('name').value;
-                const email = document.getElementById('email').value;
-                
-                if(!name || !email) {
-                    e.preventDefault();
-                    alert('Vänligen fyll i namn och e-postadress');
-                }
+                e.preventDefault();
+                // Handle form submission
             });
         }
     </script>

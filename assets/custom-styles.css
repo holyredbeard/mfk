@@ -183,4 +183,14 @@ body {
 .event-card {
     /* Background set by inline style now */
     /* color: var(--dark-blue); Text color set by inline style now */
+}
+
+/* Login Modal Styles */
+#loginOverlay {
+    /* Klassen hidden används initialt */
+}
+
+#loginModal {
+    /* Klassen hidden används initialt */
+    /* Tailwind-klasser hanterar position, transform, bg, padding, etc. */
 } 
