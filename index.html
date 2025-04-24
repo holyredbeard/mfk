@@ -1,0 +1,730 @@
+<!DOCTYPE html>
+<html lang="sv">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Mönsterås Frimärksklubb - För frimärksentusiaster</title>
+    <link rel="icon" href="assets/favicon.png" type="image/png">
+    <link rel="apple-touch-icon" href="assets/favicon.png">
+    <link rel="manifest" href="assets/site.webmanifest">
+    <meta name="theme-color" content="#1e3a8a">
+    <script src="https://cdn.tailwindcss.com"></script>
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
+    <link rel="stylesheet" href="assets/custom-styles.css">
+    <style>
+        .event-card { background-color: var(--marine-blue); color: var(--white); }
+    </style>
+</head>
+<body class="bg-gray-50 font-sans">
+    <!-- Header -->
+    <header class="fixed-header" style="background-color: var(--marine-blue);">
+        <div class="container mx-auto px-4">
+            <div class="flex flex-col md:flex-row justify-between items-center py-4">
+                <div class="flex items-center mb-3 md:mb-0">
+                    <img src="assets/logo-cross.png" alt="Mönsterås Frimärksklubb logotyp" class="h-12 mr-3">
+                    <div>
+                        <h1 class="text-2xl font-bold" style="color: var(--white);">Mönsterås Frimärksklubb</h1>
+                        <p style="color: var(--light-blue);" class="text-sm">Sedan 1999</p>
+                    </div>
+                </div>
+                <div class="hidden md:flex items-center space-x-4 text-info">
+                    <a href="mailto:info@monsterasfrimarksklubb.se" class="text-sm" style="color: var(--light-blue);">
+                        <i class="fas fa-envelope mr-1" style="color: var(--light-blue);"></i> info@monsterasfrimarksklubb.se
+                    </a>
+                    <a href="tel:0499-111111" class="text-sm" style="color: var(--light-blue);">
+                        <i class="fas fa-phone mr-1" style="color: var(--light-blue);"></i>0499-111 11
+                    </a>
+                </div>
+            </div>
+            
+            <!-- Navigation -->
+            <nav class="py-2 border-t border-opacity-20" style="background-color: var(--marine-blue); border-color: var(--light-blue);">
+                <ul class="flex space-x-6 justify-center md:justify-start flex-wrap">
+                    <li><a href="#hem" class="hover:text-light-blue transition py-2 px-3 inline-block text-white">Hem</a></li>
+                    <li class="relative dropdown-trigger">
+                        <a href="#om" class="hover:text-light-blue transition flex items-center py-2 px-3 inline-block text-white">
+                            Om oss
+                            <svg xmlns="http://www.w3.org/2000/svg" class="h-4 w-4 ml-1" fill="none" viewBox="0 0 24 24" stroke="currentColor">
+                                <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M19 9l-7 7-7-7" />
+                            </svg>
+                        </a>
+                        <ul class="dropdown-menu shadow-lg rounded-b-lg" style="background-color: var(--dark-blue);">
+                            <li><a href="#information" class="block px-4 py-2 hover:bg-opacity-80 transition text-white">Information</a></li>
+                            <li><a href="#historia" class="block px-4 py-2 hover:bg-opacity-80 transition text-white">Historia</a></li>
+                            <li><a href="#stadgar" class="block px-4 py-2 hover:bg-opacity-80 transition text-white">Stadgar</a></li>
+                        </ul>
+                    </li>
+                    <li><a href="#samlingar" class="hover:text-light-blue transition py-2 px-3 inline-block text-white">Samlingar</a></li>
+                    <li><a href="#evenemang" class="hover:text-light-blue transition py-2 px-3 inline-block text-white">Evenemang</a></li>
+                    <li><a href="#kontakt" class="hover:text-light-blue transition py-2 px-3 inline-block text-white">Kontakt</a></li>
+                </ul>
+            </nav>
+        </div>
+    </header>
+
+    <!-- Hero Section -->
+    <section class="hero-pattern text-white py-20">
+        <div id="hem" class="pt-10"></div>
+        <div class="container mx-auto px-4 text-center">
+            <h2 class="text-3xl md:text-4xl font-bold mb-6 text-white">Välkommen till Mönsterås Frimärksklubb</h2>
+            <p class="text-xl mb-8 max-w-2xl mx-auto text-white">En gemenskap för frimärksentusiaster i Mönsterås och omnejd.</p>
+            <div class="flex justify-center space-x-4">
+                <a href="#medlem" class="btn-secondary font-bold py-3 px-6 rounded-lg transition">Bli medlem</a>
+                <a href="#evenemang" class="bg-transparent hover:bg-opacity-20 border-2 border-white text-white font-bold py-3 px-6 rounded-lg transition">Kommande evenemang</a>
+            </div>
+        </div>
+    </section>
+
+    <!-- About Section -->
+    <section class="py-16 bg-white">
+        <div id="om" class="pt-10"></div>
+        <div class="container mx-auto px-4">
+            <div class="flex flex-col md:flex-row items-center">
+                <div class="md:w-1/2 mb-8 md:mb-0 md:pr-10">
+                    <h2 class="text-3xl font-bold mb-6" style="color: var(--dark-blue);">Om Mönsterås Frimärksklubb</h2>
+                    <p class="text-gray-700 mb-4">Mönsterås Frimärksklubb grundades 1965 och har sedan dess varit en central mötesplats för frimärksintresserade i regionen. Vår klubb samlar både nybörjare och erfarna samlare.</p>
+                    <p class="text-gray-700 mb-6">Vi arrangerar regelbundna möten, utställningar och bytesmarknader där medlemmar kan dela med sig av sin kunskap och sina samlingar.</p>
+                    <ul class="space-y-2 text-gray-700">
+                        <li class="flex items-center"><i class="fas fa-check-circle text-green-500 mr-2"></i> Månatliga klubbmöten</li>
+                        <li class="flex items-center"><i class="fas fa-check-circle text-green-500 mr-2"></i> Årlig frimärksutställning</li>
+                        <li class="flex items-center"><i class="fas fa-check-circle text-green-500 mr-2"></i> Expertvägledning för nybörjare</li>
+                        <li class="flex items-center"><i class="fas fa-check-circle text-green-500 mr-2"></i> Tillgång till specialbibliotek</li>
+                    </ul>
+                </div>
+                <div class="md:w-1/2">
+                    <div class="bg-gray-200 rounded-lg overflow-hidden shadow-xl">
+                        <div class="stamp-image h-64 md:h-96 w-full"></div>
+                    </div>
+                </div>
+            </div>
+            <div class="text-center mt-10">
+                <a href="#hem" class="inline-flex items-center text-accent-blue hover:text-dark-blue">
+                    <i class="fas fa-arrow-up mr-2"></i> Till toppen
+                </a>
+            </div>
+        </div>
+    </section>
+
+    <!-- Information Section -->
+    <section class="py-16 bg-gray-50">
+        <div id="information" class="pt-10"></div>
+        <div class="container mx-auto px-4">
+            <h2 class="text-3xl font-bold text-center mb-12" style="color: var(--dark-blue);">Information</h2>
+            <div class="max-w-4xl mx-auto">
+                <div class="bg-white rounded-lg shadow-lg p-8">
+                    
+                    <h4 class="text-xl font-bold mb-4" style="color: var(--dark-blue);">Medlemskap</h4>
+                    <p class="text-gray-700 mb-4">
+                        Som medlem får du delta i alla våra aktiviteter, tillgång till vår bytesverksamhet, klubbtidning och rådgivning 
+                        från våra erfarna medlemmar. Medlemsavgiften är 250 kr per år (100 kr för ungdomar under 18 år).
+                    </p>
+                    
+                    <h4 class="text-xl font-bold mt-8 mb-4" style="color: var(--dark-blue);">Klubbmöten</h4>
+                    <p class="text-gray-700 mb-4">
+                        Vi träffas den första tisdagen varje månad (utom juni, juli och augusti) i Frimärkshuset på Storgatan 12 i Mönsterås.
+                        På våra möten diskuterar vi nyheter inom filatelin, har föredrag, bytesverksamhet och frimärksauktioner.
+                    </p>
+                    
+                    <h4 class="text-xl font-bold mt-8 mb-4" style="color: var(--dark-blue);">Bibliotek och hjälpmedel</h4>
+                    <p class="text-gray-700 mb-4">
+                        Klubben har ett välsorterat bibliotek med filatelistisk litteratur, kataloger och tidskrifter som medlemmar 
+                        kan låna. Vi har även olika verktyg och hjälpmedel för frimärkssamlare till utlåning.
+                    </p>
+                    
+                    <div class="mt-8 flex justify-center">
+                        <a href="#medlem" style="background-color: var(--dark-blue);" class="hover:bg-opacity-90 text-white font-bold py-3 px-6 rounded-lg transition">Bli medlem</a>
+                    </div>
+                </div>
+            </div>
+            <div class="text-center mt-10">
+                <a href="#hem" class="inline-flex items-center text-accent-blue hover:text-dark-blue">
+                    <i class="fas fa-arrow-up mr-2"></i> Till toppen
+                </a>
+            </div>
+        </div>
+    </section>
+
+    <!-- Historia Section -->
+    <section class="py-16 bg-blue-50">
+        <div id="historia" class="pt-10"></div>
+        <div class="container mx-auto px-4">
+            <h2 class="text-3xl font-bold text-center mb-12" style="color: var(--dark-blue);">Vår historia</h2>
+            <div class="max-w-4xl mx-auto">
+                <div class="bg-white rounded-lg shadow-lg p-8">
+                    <div class="flex flex-col md:flex-row items-center mb-8">
+                        <div class="md:w-1/3 mb-6 md:mb-0 md:pr-6">
+                            <div class="bg-blue-100 p-4 rounded-lg text-center">
+                                <span class="text-5xl font-bold" style="color: var(--dark-blue);">1965</span>
+                                <p style="color: var(--icon-blue);">Grundades</p>
+                            </div>
+                        </div>
+                        <div class="md:w-2/3">
+                            <h3 class="text-xl font-bold mb-3" style="color: var(--dark-blue);">Klubbens begynnelse</h3>
+                            <p class="text-gray-700">
+                                Mönsterås Frimärksklubb grundades den 15 mars 1965 av en grupp entusiastiska frimärkssamlare under ledning av 
+                                Erik Svensson. De första mötena hölls i källaren på det gamla biblioteket med totalt 17 medlemmar.
+                            </p>
+                        </div>
+                    </div>
+                    
+                    <div class="border-l-4 border-blue-300 pl-6 my-10 py-4">
+                        <h4 class="text-lg font-bold mb-2" style="color: var(--dark-blue);">1970-talet</h4>
+                        <p class="text-gray-700 mb-4">
+                            Under 70-talet växte klubben och fick över 50 medlemmar. Vi arrangerade vår första frimärksutställning 1974 
+                            som blev en stor framgång med besökare från hela regionen.
+                        </p>
+                        
+                        <h4 class="text-lg font-bold mt-6 mb-2" style="color: var(--dark-blue);">1980- och 90-talen</h4>
+                        <p class="text-gray-700 mb-4">
+                            Klubben fortsatte växa och 1985 firade vi 20-årsjubileum med en specialutställning. 1992 började vi ge ut 
+                            en egen klubbtidning som fortfarande publiceras idag. 1997 flyttade klubben till nuvarande lokaler.
+                        </p>
+                        
+                        <h4 class="text-lg font-bold mt-6 mb-2" style="color: var(--dark-blue);">2000-talet till idag</h4>
+                        <p class="text-gray-700 mb-4">
+                            Under 2000-talet har klubben moderniserats med digitala hjälpmedel och sociala medier. Vi har etablerat samarbeten 
+                            med andra filateliföreningar i regionen och arrangerar nu gemensamma evenemang. År 2015 firade vi vårt 50-årsjubileum 
+                            med en stor utställning och festligheter.
+                        </p>
+                    </div>
+                    
+                    <div class="bg-gray-50 p-6 rounded-lg">
+                        <h3 class="text-xl font-bold mb-4" style="color: var(--dark-blue);">Tidigare ordförande</h3>
+                        <ul class="space-y-2 text-gray-700">
+                            <li><span class="font-semibold">1965-1973:</span> Erik Svensson (grundare)</li>
+                            <li><span class="font-semibold">1973-1982:</span> Bertil Karlsson</li>
+                            <li><span class="font-semibold">1982-1995:</span> Ingrid Johansson</li>
+                            <li><span class="font-semibold">1995-2008:</span> Lars Pettersson</li>
+                            <li><span class="font-semibold">2008-2019:</span> Maria Andersson</li>
+                            <li><span class="font-semibold">2019-:</span> Johan Lindgren (nuvarande)</li>
+                        </ul>
+                    </div>
+                </div>
+            </div>
+            <div class="text-center mt-10">
+                <a href="#hem" class="inline-flex items-center text-accent-blue hover:text-dark-blue">
+                    <i class="fas fa-arrow-up mr-2"></i> Till toppen
+                </a>
+            </div>
+        </div>
+    </section>
+
+    <!-- Stadgar Section -->
+    <section class="py-16 bg-gray-50">
+        <div id="stadgar" class="pt-10"></div>
+        <div class="container mx-auto px-4">
+            <h2 class="text-3xl font-bold text-center mb-12" style="color: var(--dark-blue);">Stadgar</h2>
+            <div class="max-w-4xl mx-auto">
+                <div class="bg-white rounded-lg shadow-lg p-8">
+                    <p class="text-gray-600 italic mb-8 text-center">
+                        Stadgar för Mönsterås Frimärksklubb, antagna vid årsmötet den 12 februari 2018.
+                    </p>
+                    
+                    <div class="space-y-8">
+                        <div>
+                            <h3 class="text-xl font-bold mb-3" style="color: var(--dark-blue);">§1 Föreningens namn och ändamål</h3>
+                            <p class="text-gray-700 mb-2">
+                                Föreningens namn är Mönsterås Frimärksklubb. Föreningen har till ändamål att främja 
+                                intresset för filateli och frimärkssamlande samt att stödja medlemmarnas filatelistiska utveckling.
+                            </p>
+                        </div>
+                        
+                        <div>
+                            <h3 class="text-xl font-bold mb-3" style="color: var(--dark-blue);">§2 Medlemskap</h3>
+                            <p class="text-gray-700 mb-2">
+                                Medlemskap i föreningen står öppet för alla personer som är intresserade av filateli och frimärkssamlande, 
+                                och som vill verka i enlighet med föreningens ändamål.
+                            </p>
+                            <p class="text-gray-700 mb-2">
+                                Medlemskap erhålls genom betalning av medlemsavgift. Medlemsavgiftens storlek beslutas av årsmötet.
+                            </p>
+                        </div>
+                        
+                        <div>
+                            <h3 class="text-xl font-bold mb-3" style="color: var(--dark-blue);">§3 Styrelse</h3>
+                            <p class="text-gray-700 mb-2">
+                                Föreningens angelägenheter handhas av en styrelse bestående av ordförande, vice ordförande, 
+                                sekreterare, kassör samt tre ledamöter. Styrelsen väljs vid årsmötet för en period av två år.
+                            </p>
+                            <p class="text-gray-700 mb-2">
+                                Ordförande och två ledamöter väljs jämna år. Vice ordförande, sekreterare, kassör och en ledamot väljs udda år.
+                            </p>
+                        </div>
+                        
+                        <div>
+                            <h3 class="text-xl font-bold mb-3" style="color: var(--dark-blue);">§4 Möten</h3>
+                            <p class="text-gray-700 mb-2">
+                                Föreningens högsta beslutande organ är årsmötet som hålls varje år före februari månads utgång. 
+                                Kallelse till årsmötet ska vara medlemmarna tillhanda senast två veckor före mötet.
+                            </p>
+                            <p class="text-gray-700 mb-2">
+                                Föreningens verksamhetsår och räkenskapsår sammanfaller med kalenderår.
+                            </p>
+                        </div>
+                        
+                        <div>
+                            <h3 class="text-xl font-bold mb-3" style="color: var(--dark-blue);">§5 Stadgeändring</h3>
+                            <p class="text-gray-700 mb-2">
+                                Ändring av dessa stadgar kan endast ske genom beslut vid årsmöte med minst 2/3 majoritet av närvarande röstberättigade.
+                            </p>
+                        </div>
+                        
+                        <div>
+                            <h3 class="text-xl font-bold mb-3" style="color: var(--dark-blue);">§6 Upplösning</h3>
+                            <p class="text-gray-700 mb-2">
+                                Beslut om föreningens upplösning kan endast fattas om förslag därom angivits i kallelse till årsmöte samt att 
+                                minst 3/4 av de närvarande röstberättigade medlemmarna är ense om beslutet.
+                            </p>
+                            <p class="text-gray-700 mb-2">
+                                Vid upplösning ska föreningens tillgångar användas på sätt som beslutas av det sista årsmötet.
+                            </p>
+                        </div>
+                    </div>
+                    
+                    <div class="mt-10 text-center text-gray-600">
+                        <p>För fullständiga stadgar, kontakta föreningens sekreterare.</p>
+                    </div>
+                </div>
+            </div>
+            <div class="text-center mt-10">
+                <a href="#hem" class="inline-flex items-center text-accent-blue hover:text-dark-blue">
+                    <i class="fas fa-arrow-up mr-2"></i> Till toppen
+                </a>
+            </div>
+        </div>
+    </section>
+
+    <!-- Collections Section -->
+    <section class="py-16 bg-gray-100">
+        <div id="samlingar" class="pt-10"></div>
+        <div class="container mx-auto px-4">
+            <h2 class="text-3xl font-bold text-center mb-12" style="color: var(--dark-blue);">Våra samlingar</h2>
+            <div class="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-8">
+                <!-- Collection Card 1 -->
+                <div class="stamp-card bg-white rounded-lg overflow-hidden shadow-md">
+                    <div class="h-48 bg-cover bg-center" style="background-image: url('assets/stamps.jpg');"></div>
+                    <div class="p-6">
+                        <h3 class="text-xl font-bold mb-2" style="color: var(--dark-blue);">Svenska frimärken</h3>
+                        <p class="text-gray-600 mb-4">En omfattande samling av svenska frimärken från 1855 till idag, inklusive sällsynta provtryck och felutgåvor.</p>
+                        <a href="#" style="color: var(--icon-blue);" class="hover:text-dark-blue font-medium">Visa samling →</a>
+                    </div>
+                </div>
+                
+                <!-- Collection Card 2 -->
+                <div class="stamp-card bg-white rounded-lg overflow-hidden shadow-md">
+                    <div class="h-48 bg-cover bg-center" style="background-image: url('assets/stamps.jpg');"></div>
+                    <div class="p-6">
+                        <h3 class="text-xl font-bold mb-2" style="color: var(--dark-blue);">Nordiska frimärken</h3>
+                        <p class="text-gray-600 mb-4">Representativa samlingar från alla nordiska länder, med särskilt fokus på unionsfrågor och posthistoria.</p>
+                        <a href="#" style="color: var(--icon-blue);" class="hover:text-dark-blue font-medium">Visa samling →</a>
+                    </div>
+                </div>
+                
+                <!-- Collection Card 3 -->
+                <div class="stamp-card bg-white rounded-lg overflow-hidden shadow-md">
+                    <div class="h-48 bg-cover bg-center" style="background-image: url('assets/stamps.jpg');"></div>
+                    <div class="p-6">
+                        <h3 class="text-xl font-bold mb-2" style="color: var(--dark-blue);">Tematiska samlingar</h3>
+                        <p class="text-gray-600 mb-4">Specialiserade samlingar organiserade efter tema som sport, konst, djur och kungligheter från hela världen.</p>
+                        <a href="#" style="color: var(--icon-blue);" class="hover:text-dark-blue font-medium">Visa samling →</a>
+                    </div>
+                </div>
+            </div>
+            <div class="text-center mt-10">
+                <a href="#hem" class="inline-flex items-center text-accent-blue hover:text-dark-blue">
+                    <i class="fas fa-arrow-up mr-2"></i> Till toppen
+                </a>
+            </div>
+        </div>
+    </section>
+
+    <!-- Events Section -->
+    <section class="py-16" style="background-color: var(--dark-blue);">
+        <div id="evenemang" class="pt-10"></div>
+        <div class="container mx-auto px-4">
+            <h2 class="text-3xl font-bold text-center mb-12 text-white">Kommande evenemang</h2>
+            <div class="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-8">
+                <!-- Event 1 -->
+                <div style="background-color: var(--marine-blue);" class="rounded-lg overflow-hidden shadow-lg">
+                    <div class="p-6" style="color: var(--white);">
+                        <div class="flex items-center mb-4">
+                            <div style="background-color: var(--red);" class="text-white font-bold rounded-lg py-2 px-4 text-center mr-4">
+                                <div class="text-xl">15</div>
+                                <div class="text-sm">OKT</div>
+                            </div>
+                            <div>
+                                <h3 class="text-xl font-bold">Månadsmöte</h3>
+                                <p>Kl. 18:00 - 20:00</p>
+                            </div>
+                        </div>
+                        <p class="mb-4">Vårt regelbundna månadsmöte med visning av nya förvärv, föredrag om svenska frimärken från 1920-talet och bytesmöjligheter.</p>
+                        <a href="#" class="inline-block btn-secondary font-bold py-2 px-4 rounded transition">Anmäl dig</a>
+                    </div>
+                </div>
+                
+                <!-- Event 2 -->
+                <div style="background-color: var(--marine-blue);" class="rounded-lg overflow-hidden shadow-lg">
+                    <div class="p-6" style="color: var(--white);">
+                        <div class="flex items-center mb-4">
+                            <div style="background-color: var(--red);" class="text-white font-bold rounded-lg py-2 px-4 text-center mr-4">
+                                <div class="text-xl">28</div>
+                                <div class="text-sm">OKT</div>
+                            </div>
+                            <div>
+                                <h3 class="text-xl font-bold">Frimärksutställning</h3>
+                                <p>Kl. 10:00 - 16:00</p>
+                            </div>
+                        </div>
+                        <p class="mb-4">Årlig frimärksutställning med deltagare från hela Småland. Specialvisning av sällsynta svenska frimärken och expertbedömning.</p>
+                        <a href="#" class="inline-block btn-secondary font-bold py-2 px-4 rounded transition">Läs mer</a>
+                    </div>
+                </div>
+                
+                <!-- Event 3 -->
+                <div style="background-color: var(--marine-blue);" class="rounded-lg overflow-hidden shadow-lg">
+                    <div class="p-6" style="color: var(--white);">
+                        <div class="flex items-center mb-4">
+                            <div style="background-color: var(--red);" class="text-white font-bold rounded-lg py-2 px-4 text-center mr-4">
+                                <div class="text-xl">12</div>
+                                <div class="text-sm">NOV</div>
+                            </div>
+                            <div>
+                                <h3 class="text-xl font-bold">Nybörjarkurs</h3>
+                                <p>Kl. 17:00 - 19:00</p>
+                            </div>
+                        </div>
+                        <p class="mb-4">Introduktion till frimärkssamlande för nybörjare. Vi går igenom grundläggande verktyg, terminologi och hur du börjar din samling.</p>
+                        <a href="#" class="inline-block btn-secondary font-bold py-2 px-4 rounded transition">Anmäl dig</a>
+                    </div>
+                </div>
+            </div>
+            <div class="text-center mt-10">
+                <a href="#hem" class="inline-flex items-center text-accent-blue hover:text-dark-blue">
+                    <i class="fas fa-arrow-up mr-2"></i> Till toppen
+                </a>
+            </div>
+        </div>
+    </section>
+
+    <!-- Membership Section -->
+    <section class="py-16 bg-white">
+        <div id="medlem" class="pt-10"></div>
+        <div class="container mx-auto px-4">
+            <div class="max-w-4xl mx-auto bg-gray-100 rounded-xl shadow-lg overflow-hidden">
+                <div class="md:flex">
+                    <div class="md:w-1/2" style="background-color: var(--dark-blue);">
+                        <div class="text-white p-8">
+                            <h2 class="text-3xl font-bold mb-6">Bli medlem idag!</h2>
+                            <p class="mb-6">Som medlem i Mönsterås Frimärksklubb får du tillgång till:</p>
+                            <ul class="space-y-3 mb-8">
+                                <li class="flex items-center"><i class="fas fa-check-circle mr-3" style="color: var(--red);"></i> Alla våra månatliga möten</li>
+                                <li class="flex items-center"><i class="fas fa-check-circle mr-3" style="color: var(--red);"></i> Rabatter på klubbens evenemang</li>
+                                <li class="flex items-center"><i class="fas fa-check-circle mr-3" style="color: var(--red);"></i> Vårt nyhetsbrev med senaste nytt</li>
+                                <li class="flex items-center"><i class="fas fa-check-circle mr-3" style="color: var(--red);"></i> Tillgång till bytesmarknader</li>
+                                <li class="flex items-center"><i class="fas fa-check-circle mr-3" style="color: var(--red);"></i> Expertrådgivning för din samling</li>
+                            </ul>
+                            <div class="accent-light-blue text-dark-blue p-4 rounded-lg">
+                                <p class="font-bold">Medlemsavgift: 250 kr/år</p>
+                                <p class="text-sm">(Ungdom under 18 år: 100 kr/år)</p>
+                            </div>
+                        </div>
+                    </div>
+                    <div class="md:w-1/2 p-8">
+                        <h3 class="text-2xl font-bold text-blue-900 mb-6">Anmälan till medlemskap</h3>
+                        <form>
+                            <div class="mb-4">
+                                <label class="block mb-2" for="name" style="color: var(--dark-blue);">Fullständigt namn</label>
+                                <input type="text" id="name" class="w-full px-4 py-2 border rounded-lg focus:outline-none focus:ring-2 focus:ring-blue-500">
+                            </div>
+                            <div class="mb-4">
+                                <label class="block mb-2" for="email" style="color: var(--dark-blue);">E-postadress</label>
+                                <input type="email" id="email" class="w-full px-4 py-2 border rounded-lg focus:outline-none focus:ring-2 focus:ring-blue-500">
+                            </div>
+                            <div class="mb-4">
+                                <label class="block mb-2" for="phone" style="color: var(--dark-blue);">Telefonnummer</label>
+                                <input type="tel" id="phone" class="w-full px-4 py-2 border rounded-lg focus:outline-none focus:ring-2 focus:ring-blue-500">
+                            </div>
+                            <div class="mb-6">
+                                <label class="block mb-2" for="interest" style="color: var(--dark-blue);">Dina främsta intressen inom filateli</label>
+                                <textarea id="interest" rows="3" class="w-full px-4 py-2 border rounded-lg focus:outline-none focus:ring-2 focus:ring-blue-500"></textarea>
+                            </div>
+                            <button type="submit" class="w-full btn-primary hover:bg-dark-blue text-white font-bold py-3 px-4 rounded-lg transition">Skicka anmälan</button>
+                        </form>
+                    </div>
+                </div>
+            </div>
+            <div class="text-center mt-10">
+                <a href="#hem" class="inline-flex items-center text-accent-blue hover:text-dark-blue">
+                    <i class="fas fa-arrow-up mr-2"></i> Till toppen
+                </a>
+            </div>
+        </div>
+    </section>
+
+    <!-- Contact Section -->
+    <section class="py-16 bg-gray-100">
+        <div id="kontakt" class="pt-10"></div>
+        <div class="container mx-auto px-4">
+            <h2 class="text-3xl font-bold text-center mb-12" style="color: var(--dark-blue);">Kontakta oss</h2>
+            <div class="flex flex-col md:flex-row">
+                <div class="md:w-1/2 mb-8 md:mb-0 md:pr-8">
+                    <div class="bg-white p-8 rounded-lg shadow-lg">
+                        <h3 class="text-xl font-bold mb-4" style="color: var(--dark-blue);">Kontaktinformation</h3>
+                        <div class="space-y-4">
+                            <div class="flex items-start">
+                                <i class="fas fa-map-marker-alt text-blue-700 mt-1 mr-4"></i>
+                                <div>
+                                    <h4 class="font-medium">Besöksadress</h4>
+                                    <p class="text-gray-600">Frimärkshuset<br>Storgatan 12<br>383 32 Mönsterås</p>
+                                </div>
+                            </div>
+                            <div class="flex items-start">
+                                <i class="fas fa-envelope text-blue-700 mt-1 mr-4"></i>
+                                <div>
+                                    <h4 class="font-medium">E-post</h4>
+                                    <p class="text-gray-600">info@monsterasfrimarksklubb.se</p>
+                                </div>
+                            </div>
+                            <div class="flex items-start">
+                                <i class="fas fa-phone-alt text-blue-700 mt-1 mr-4"></i>
+                                <div>
+                                    <h4 class="font-medium">Telefon</h4>
+                                    <p class="text-gray-600">0470-123 45</p>
+                                </div>
+                            </div>
+                            <div class="flex items-start">
+                                <i class="fas fa-clock text-blue-700 mt-1 mr-4"></i>
+                                <div>
+                                    <h4 class="font-medium">Öppettider</h4>
+                                    <p class="text-gray-600">Tisdagar 13:00-17:00<br>Lördagar 10:00-14:00</p>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+                <div class="md:w-1/2">
+                    <div class="bg-white p-8 rounded-lg shadow-lg h-full">
+                        <h3 class="text-xl font-bold mb-4" style="color: var(--dark-blue);">Skicka ett meddelande</h3>
+                        <form>
+                            <div class="mb-4">
+                                <label class="block text-gray-700 mb-2" for="contact-name">Namn</label>
+                                <input type="text" id="contact-name" class="w-full px-4 py-2 border rounded-lg focus:outline-none focus:ring-2 focus:ring-blue-500">
+                            </div>
+                            <div class="mb-4">
+                                <label class="block text-gray-700 mb-2" for="contact-email">E-post</label>
+                                <input type="email" id="contact-email" class="w-full px-4 py-2 border rounded-lg focus:outline-none focus:ring-2 focus:ring-blue-500">
+                            </div>
+                            <div class="mb-4">
+                                <label class="block text-gray-700 mb-2" for="contact-subject">Ämne</label>
+                                <input type="text" id="contact-subject" class="w-full px-4 py-2 border rounded-lg focus:outline-none focus:ring-2 focus:ring-blue-500">
+                            </div>
+                            <div class="mb-6">
+                                <label class="block text-gray-700 mb-2" for="contact-message">Meddelande</label>
+                                <textarea id="contact-message" rows="5" class="w-full px-4 py-2 border rounded-lg focus:outline-none focus:ring-2 focus:ring-blue-500"></textarea>
+                            </div>
+                            <button type="submit" class="btn-primary hover:bg-dark-blue text-white font-bold py-3 px-6 rounded-lg transition">Skicka meddelande</button>
+                        </form>
+                    </div>
+                </div>
+            </div>
+            <div class="text-center mt-10">
+                <a href="#hem" class="inline-flex items-center text-accent-blue hover:text-dark-blue">
+                    <i class="fas fa-arrow-up mr-2"></i> Till toppen
+                </a>
+            </div>
+        </div>
+    </section>
+
+    <!-- Footer -->
+    <footer style="background-color: var(--dark-blue);" class="text-white py-8">
+        <div class="container mx-auto px-4">
+            <div class="flex flex-col md:flex-row justify-between">
+                <div class="mb-6 md:mb-0">
+                    <div class="flex items-center mb-4">
+                        <img src="assets/logo-cross.png" alt="Mönsterås Frimärksklubb logotyp" class="h-8 mr-3">
+                        <h3 class="text-xl font-bold">Mönsterås Frimärksklubb</h3>
+                    </div>
+                    <p class="max-w-xs" style="color: var(--light-blue);">För frimärksentusiaster i Mönsterås och omnejd sedan 1965.</p>
+                </div>
+                <div class="grid grid-cols-2 md:grid-cols-3 gap-8">
+                    <div>
+                        <h4 class="font-bold mb-4">Länkar</h4>
+                        <ul class="space-y-2">
+                            <li><a href="#hem" style="color: var(--light-blue);" class="hover:text-white transition">Hem</a></li>
+                            <li><a href="#om" style="color: var(--light-blue);" class="hover:text-white transition">Om oss</a></li>
+                            <li><a href="#information" style="color: var(--light-blue);" class="hover:text-white transition pl-3 text-sm">- Information</a></li>
+                            <li><a href="#historia" style="color: var(--light-blue);" class="hover:text-white transition pl-3 text-sm">- Historia</a></li>
+                            <li><a href="#stadgar" style="color: var(--light-blue);" class="hover:text-white transition pl-3 text-sm">- Stadgar</a></li>
+                            <li><a href="#samlingar" style="color: var(--light-blue);" class="hover:text-white transition">Samlingar</a></li>
+                            <li><a href="#evenemang" style="color: var(--light-blue);" class="hover:text-white transition">Evenemang</a></li>
+                            <li><a href="#kontakt" style="color: var(--light-blue);" class="hover:text-white transition">Kontakt</a></li>
+                        </ul>
+                    </div>
+                    <div>
+                        <h4 class="font-bold mb-4">Följ oss</h4>
+                        <div class="flex space-x-4">
+                            <a href="#" style="color: var(--light-blue);" class="hover:text-white text-xl transition"><i class="fab fa-facebook"></i></a>
+                            <a href="#" style="color: var(--light-blue);" class="hover:text-white text-xl transition"><i class="fab fa-instagram"></i></a>
+                            <a href="#" style="color: var(--light-blue);" class="hover:text-white text-xl transition"><i class="fab fa-youtube"></i></a>
+                        </div>
+                    </div>
+                    <div>
+                        <h4 class="font-bold mb-4">Nyhetsbrev</h4>
+                        <form class="flex">
+                            <input type="email" placeholder="Din e-post" class="px-3 py-2 text-gray-900 rounded-l focus:outline-none w-full">
+                            <button type="submit" style="background-color: var(--red);" class="hover:bg-opacity-90 text-white px-4 rounded-r transition">
+                                <i class="fas fa-paper-plane"></i>
+                            </button>
+                        </form>
+                    </div>
+                </div>
+            </div>
+            <div class="border-t mt-8 pt-6 text-center text-sm" style="border-color: var(--marine-blue); color: var(--light-blue);">
+                <p>© 2023 Mönsterås Frimärksklubb. Alla rättigheter reserverade.</p>
+            </div>
+        </div>
+    </footer>
+
+    <script>
+        // Smooth scrolling for anchor links
+        document.querySelectorAll('a[href^="#"]').forEach(anchor => {
+            anchor.addEventListener('click', function (e) {
+                e.preventDefault();
+                
+                const targetId = this.getAttribute('href');
+                const targetElement = document.querySelector(targetId);
+                
+                if (targetElement) {
+                    // Get the fixed header height for offset
+                    const headerHeight = document.querySelector('.fixed-header').offsetHeight;
+                    
+                    // Calculate the element's position accounting for the header
+                    const elementPosition = targetElement.getBoundingClientRect().top;
+                    const offsetPosition = elementPosition + window.pageYOffset - headerHeight;
+                    
+                    // Scroll to the element with offset
+                    window.scrollTo({
+                        top: offsetPosition,
+                        behavior: 'smooth'
+                    });
+                    
+                    // Update the active navigation link
+                    document.querySelectorAll('.fixed-header nav a').forEach(link => {
+                        link.classList.remove('active');
+                    });
+                    this.classList.add('active');
+                }
+            });
+        });
+        
+        // Fixed header scroll effect and active link handler
+        window.addEventListener('scroll', function() {
+            const header = document.querySelector('.fixed-header');
+            const navLinks = document.querySelectorAll('.fixed-header nav a');
+            const sections = document.querySelectorAll('section');
+            
+            // Add scrolled class when scrolled down
+            if (window.scrollY > 50) {
+                header.classList.add('scrolled');
+            } else {
+                header.classList.remove('scrolled');
+            }
+            
+            // Find which section is currently in view
+            let currentSection = '';
+            sections.forEach(section => {
+                const sectionTop = section.offsetTop - 150;
+                const sectionHeight = section.clientHeight;
+                
+                if (window.scrollY >= sectionTop && window.scrollY < sectionTop + sectionHeight) {
+                    // Extract the ID from the first div with an ID inside the section
+                    const idElement = section.querySelector('div[id]');
+                    if (idElement) {
+                        currentSection = idElement.getAttribute('id');
+                    }
+                }
+            });
+            
+            // Update the active navigation link
+            navLinks.forEach(link => {
+                link.classList.remove('active');
+                const href = link.getAttribute('href').substring(1); // Remove the # character
+                if (href === currentSection) {
+                    link.classList.add('active');
+                }
+            });
+        });
+        
+        // Run the scroll handler on page load to set the correct state
+        window.addEventListener('DOMContentLoaded', function() {
+            // Set initial scroll state
+            if (window.scrollY > 50) {
+                document.querySelector('.fixed-header').classList.add('scrolled');
+            }
+            
+            // Mobile dropdown menu toggle
+            const dropdownTriggers = document.querySelectorAll('.dropdown-trigger > a');
+            
+            // Only add click handlers on mobile
+            function handleMobileDropdowns() {
+                if (window.innerWidth <= 768) {
+                    dropdownTriggers.forEach(trigger => {
+                        trigger.addEventListener('click', function(e) {
+                            if (e.currentTarget.parentNode.querySelector('.dropdown-menu')) {
+                                e.preventDefault();
+                                const dropdown = e.currentTarget.parentNode.querySelector('.dropdown-menu');
+                                dropdown.classList.toggle('active');
+                            }
+                        });
+                    });
+                }
+            }
+            
+            // Initial call
+            handleMobileDropdowns();
+            
+            // Handle window resize
+            window.addEventListener('resize', handleMobileDropdowns);
+            
+            // Add style for active links
+            const style = document.createElement('style');
+            style.textContent = `
+                .fixed-header nav a.active {
+                    color: var(--white);
+                    font-weight: bold;
+                    position: relative;
+                }
+                .fixed-header nav a.active::after {
+                    content: "";
+                    position: absolute;
+                    bottom: -2px;
+                    left: 50%;
+                    transform: translateX(-50%);
+                    width: 60%;
+                    height: 2px;
+                    background-color: var(--red);
+                    border-radius: 2px;
+                }
+            `;
+            document.head.appendChild(style);
+            
+            // Initial scroll trigger to set active link
+            window.dispatchEvent(new Event('scroll'));
+        });
+        
+        // Simple form validation for membership form
+        const membershipForm = document.querySelector('#medlem form');
+        if(membershipForm) {
+            membershipForm.addEventListener('submit', function(e) {
+                const name = document.getElementById('name').value;
+                const email = document.getElementById('email').value;
+                
+                if(!name || !email) {
+                    e.preventDefault();
+                    alert('Vänligen fyll i namn och e-postadress');
+                }
+            });
+        }
+    </script>
+</body>
+</html> 

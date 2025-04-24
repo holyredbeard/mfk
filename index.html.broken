@@ -1,0 +1,388 @@
+<!DOCTYPE html>
+<html lang="sv">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Mönsterås Frimärksklubb - För frimärksentusiaster</title>
+    <link rel="icon" href="assets/favicon.svg" type="image/svg+xml">
+    <link rel="icon" href="assets/favicon.ico" sizes="any">
+    <link rel="apple-touch-icon" href="assets/favicon.svg">
+    <link rel="manifest" href="assets/site.webmanifest">
+    <meta name="theme-color" content="#1e3a8a">
+    <!-- Ersätter CDN med lokal fil -->
+    <link rel="stylesheet" href="assets/tailwind.css">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
+    <style>
+        /* Custom color scheme */
+        :root {
+            --dark-blue: #18375F;
+            --marine-blue: #1C3F66;
+            --light-gray: #F6F6F6;
+            --white: #FFFFFF;
+            --red: #C8102E;
+            --light-blue: #E6EEF6;
+            --icon-blue: #2E5C9A;
+        }
+
+        .hero-pattern {
+            background-image: url('assets/stamps.jpg');
+            background-size: cover;
+            background-position: center;
+            background-blend-mode: multiply;
+            background-color: rgba(24, 55, 95, 0.95);
+            position: relative;
+        }
+        
+        .hero-pattern::before {
+            content: "";
+            position: absolute;
+            top: 0;
+            left: 0;
+            width: 100%;
+            height: 100%;
+            background-color: rgba(24, 55, 95, 0.6);
+            z-index: 1;
+        }
+        
+        .hero-pattern .container {
+            position: relative;
+            z-index: 2; /* Place content above the overlay */
+        }
+        
+        .hero-pattern .container h2,
+        .hero-pattern .container p {
+            text-shadow: 0 2px 4px rgba(0, 0, 0, 0.8);
+        }
+        
+        .stamp-card {
+            transition: all 0.3s ease;
+            transform-style: preserve-3d;
+        }
+        
+        .stamp-card:hover {
+            transform: translateY(-5px) rotate(1deg);
+            box-shadow: 0 10px 20px rgba(0,0,0,0.2);
+        }
+        
+        .stamp-image {
+            background-image: url('assets/stamps.jpg');
+            background-size: cover;
+            background-position: center;
+        }
+        
+        /* Dropdown menu styles */
+        .dropdown-menu {
+            position: absolute;
+            top: 100%;
+            left: 0;
+            opacity: 0;
+            visibility: hidden;
+            transform: translateY(10px);
+            transition: all 0.3s ease;
+            z-index: 20;
+            min-width: 180px;
+            background-color: var(--marine-blue);
+        }
+        
+        .dropdown-trigger:hover .dropdown-menu,
+        .dropdown-menu:hover {
+            opacity: 1;
+            visibility: visible;
+            transform: translateY(0);
+        }
+        
+        /* Mobile menu handling */
+        @media (max-width: 768px) {
+            .dropdown-menu {
+                position: static;
+                display: none;
+                opacity: 1;
+                visibility: visible;
+                transform: none;
+                padding-left: 1.5rem;
+            }
+            
+            .dropdown-menu.active {
+                display: block;
+            }
+        }
+        
+        /* Fixed header styles */
+        .fixed-header {
+            position: fixed;
+            top: 0;
+            left: 0;
+            right: 0;
+            z-index: 1000;
+            transition: all 0.3s ease;
+            box-shadow: 0 2px 8px rgba(0, 0, 0, 0.2);
+        }
+        
+        .fixed-header .flex-col {
+            transition: all 0.4s ease;
+            max-height: 100px;
+            opacity: 1;
+        }
+        
+        .fixed-header.scrolled .flex-col {
+            max-height: 0;
+            opacity: 0;
+            overflow: hidden;
+            margin: 0;
+            padding: 0;
+        }
+        
+        .fixed-header.scrolled {
+            background-color: var(--dark-blue);
+        }
+        
+        .fixed-header nav {
+            transition: all 0.3s ease;
+        }
+        
+        .fixed-header.scrolled nav {
+            border-top: none;
+            padding-top: 0.75rem;
+            padding-bottom: 0.75rem;
+        }
+        
+        /* Add padding to body to prevent content from hiding behind fixed header */
+        body {
+            padding-top: 120px; /* Adjusted for header height */
+            background-color: var(--light-gray);
+            color: #333;
+        }
+        
+        @media (max-width: 768px) {
+            body {
+                padding-top: 140px; /* Taller on mobile due to stacked layout */
+            }
+            
+            .fixed-header.scrolled nav ul {
+                justify-content: center;
+            }
+        }
+        
+        /* Button styles */
+        .btn-primary {
+            background-color: var(--icon-blue);
+            color: var(--white);
+        }
+        
+        .btn-primary:hover {
+            background-color: var(--dark-blue);
+        }
+        
+        .btn-secondary {
+            background-color: var(--red);
+            color: var(--white);
+        }
+        
+        .btn-secondary:hover {
+            background-color: #a50e27;
+        }
+        
+        /* Custom accent colors */
+        .accent-light-blue {
+            background-color: var(--light-blue);
+        }
+        
+        .text-accent-blue {
+            color: var(--icon-blue);
+        }
+        
+        .text-accent-red {
+            color: var(--red);
+        }
+    </style>
+</head>
+<body class="bg-gray-50 font-sans">
+    <!-- Header -->
+    <header class="fixed-header" style="background-color: var(--marine-blue);">
+        <div class="container mx-auto px-4">
+            <div class="flex flex-col md:flex-row justify-between items-center py-4">
+                <div class="flex items-center mb-3 md:mb-0">
+                    <img src="assets/logo-cross.png" alt="Mönsterås Frimärksklubb logotyp" class="h-12 mr-3">
+                    <div>
+                        <h1 class="text-2xl font-bold" style="color: var(--white);">Mönsterås Frimärksklubb</h1>
+                        <p style="color: var(--light-blue);" class="text-sm">Sedan 1999</p>
+                    </div>
+                </div>
+                <div class="hidden md:flex items-center space-x-4 text-info">
+                    <a href="mailto:info@monsterasfrimarksklubb.se" class="text-sm" style="color: var(--light-blue);">
+                        <i class="fas fa-envelope mr-1" style="color: var(--light-blue);"></i> info@monsterasfrimarksklubb.se
+                    </a>
+                    <a href="tel:0470-12345" class="text-sm" style="color: var(--light-blue);">
+                        <i class="fas fa-phone mr-1" style="color: var(--light-blue);"></i> 0470-123 45
+                    </a>
+                </div>
+            </div>
+            
+            <!-- Navigation -->
+            <nav class="py-2 border-t border-opacity-20" style="background-color: var(--dark-blue); border-color: var(--light-blue);">
+                <ul class="flex space-x-6 justify-center md:justify-start flex-wrap">
+                    <li><a href="#hem" class="hover:text-light-blue transition py-2 px-3 inline-block text-white">Hem</a></li>
+                    <li class="relative dropdown-trigger">
+                        <a href="#om" class="hover:text-light-blue transition flex items-center py-2 px-3 inline-block text-white">
+                            Om oss
+                            <svg xmlns="http://www.w3.org/2000/svg" class="h-4 w-4 ml-1" fill="none" viewBox="0 0 24 24" stroke="currentColor">
+                                <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M19 9l-7 7-7-7" />
+                            </svg>
+                        </a>
+                        <ul class="dropdown-menu shadow-lg rounded-b-lg" style="background-color: var(--dark-blue);">
+                            <li><a href="#information" class="block px-4 py-2 hover:bg-opacity-80 transition text-white">Information</a></li>
+                            <li><a href="#historia" class="block px-4 py-2 hover:bg-opacity-80 transition text-white">Historia</a></li>
+                            <li><a href="#stadgar" class="block px-4 py-2 hover:bg-opacity-80 transition text-white">Stadgar</a></li>
+                        </ul>
+                    </li>
+                    <li><a href="#samlingar" class="hover:text-light-blue transition py-2 px-3 inline-block text-white">Samlingar</a></li>
+                    <li><a href="#evenemang" class="hover:text-light-blue transition py-2 px-3 inline-block text-white">Evenemang</a></li>
+                    <li><a href="#kontakt" class="hover:text-light-blue transition py-2 px-3 inline-block text-white">Kontakt</a></li>
+                </ul>
+            </nav>
+        </div>
+    </header>
+
+    <script>
+        // Smooth scrolling for anchor links
+        document.querySelectorAll('a[href^="#"]').forEach(anchor => {
+            anchor.addEventListener('click', function (e) {
+                e.preventDefault();
+                
+                const targetId = this.getAttribute('href');
+                const targetElement = document.querySelector(targetId);
+                
+                if (targetElement) {
+                    // Get the fixed header height for offset
+                    const headerHeight = document.querySelector('.fixed-header').offsetHeight;
+                    
+                    // Calculate the element's position accounting for the header
+                    const elementPosition = targetElement.getBoundingClientRect().top;
+                    const offsetPosition = elementPosition + window.pageYOffset - headerHeight;
+                    
+                    // Scroll to the element with offset
+                    window.scrollTo({
+                        top: offsetPosition,
+                        behavior: 'smooth'
+                    });
+                    
+                    // Update the active navigation link
+                    document.querySelectorAll('.fixed-header nav a').forEach(link => {
+                        link.classList.remove('active');
+                    });
+                    this.classList.add('active');
+                }
+            });
+        });
+        
+        // Fixed header scroll effect and active link handler
+        window.addEventListener('scroll', function() {
+            const header = document.querySelector('.fixed-header');
+            const navLinks = document.querySelectorAll('.fixed-header nav a');
+            const sections = document.querySelectorAll('section');
+            
+            // Add scrolled class when scrolled down
+            if (window.scrollY > 50) {
+                header.classList.add('scrolled');
+            } else {
+                header.classList.remove('scrolled');
+            }
+            
+            // Find which section is currently in view
+            let currentSection = '';
+            sections.forEach(section => {
+                const sectionTop = section.offsetTop - 150;
+                const sectionHeight = section.clientHeight;
+                
+                if (window.scrollY >= sectionTop && window.scrollY < sectionTop + sectionHeight) {
+                    // Extract the ID from the first div with an ID inside the section
+                    const idElement = section.querySelector('div[id]');
+                    if (idElement) {
+                        currentSection = idElement.getAttribute('id');
+                    }
+                }
+            });
+            
+            // Update the active navigation link
+            navLinks.forEach(link => {
+                link.classList.remove('active');
+                const href = link.getAttribute('href').substring(1); // Remove the # character
+                if (href === currentSection) {
+                    link.classList.add('active');
+                }
+            });
+        });
+        
+        // Run the scroll handler on page load to set the correct state
+        window.addEventListener('DOMContentLoaded', function() {
+            // Set initial scroll state
+            if (window.scrollY > 50) {
+                document.querySelector('.fixed-header').classList.add('scrolled');
+            }
+            
+            // Mobile dropdown menu toggle
+            const dropdownTriggers = document.querySelectorAll('.dropdown-trigger > a');
+            
+            // Only add click handlers on mobile
+            function handleMobileDropdowns() {
+                if (window.innerWidth <= 768) {
+                    dropdownTriggers.forEach(trigger => {
+                        trigger.addEventListener('click', function(e) {
+                            if (e.currentTarget.parentNode.querySelector('.dropdown-menu')) {
+                                e.preventDefault();
+                                const dropdown = e.currentTarget.parentNode.querySelector('.dropdown-menu');
+                                dropdown.classList.toggle('active');
+                            }
+                        });
+                    });
+                }
+            }
+            
+            // Initial call
+            handleMobileDropdowns();
+            
+            // Handle window resize
+            window.addEventListener('resize', handleMobileDropdowns);
+            
+            // Add style for active links
+            const style = document.createElement('style');
+            style.textContent = `
+                .fixed-header nav a.active {
+                    color: var(--white);
+                    font-weight: bold;
+                    position: relative;
+                }
+                .fixed-header nav a.active::after {
+                    content: "";
+                    position: absolute;
+                    bottom: -2px;
+                    left: 50%;
+                    transform: translateX(-50%);
+                    width: 60%;
+                    height: 2px;
+                    background-color: var(--light-blue);
+                    border-radius: 2px;
+                }
+            `;
+            document.head.appendChild(style);
+            
+            // Initial scroll trigger to set active link
+            window.dispatchEvent(new Event('scroll'));
+        });
+        
+        // Simple form validation for membership form
+        const membershipForm = document.querySelector('#medlem form');
+        if(membershipForm) {
+            membershipForm.addEventListener('submit', function(e) {
+                const name = document.getElementById('name').value;
+                const email = document.getElementById('email').value;
+                
+                if(!name || !email) {
+                    e.preventDefault();
+                    alert('Vänligen fyll i namn och e-postadress');
+                }
+            });
+        }
+    </script>
+</body>
+</html> 

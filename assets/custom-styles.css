@@ -1,0 +1,186 @@
+/* Custom color scheme */
+:root {
+    --dark-blue: #18375F;
+    --marine-blue: #1C3F66;
+    --light-gray: #F6F6F6;
+    --white: #FFFFFF;
+    --red: #C8102E;
+    --light-blue: #E6EEF6;
+    --icon-blue: #2E5C9A;
+}
+
+.hero-pattern {
+    background-image: url('stamps.jpg'); /* Adjusted path */
+    background-size: cover;
+    background-position: center;
+    background-blend-mode: multiply;
+    background-color: rgba(24, 55, 95, 0.95);
+    position: relative;
+}
+
+.hero-pattern::before {
+    content: "";
+    position: absolute;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    background-color: rgba(24, 55, 95, 0.6);
+    z-index: 1;
+}
+
+.hero-pattern .container {
+    position: relative;
+    z-index: 2; /* Place content above the overlay */
+}
+
+.hero-pattern .container h2,
+.hero-pattern .container p {
+    text-shadow: 0 2px 4px rgba(0, 0, 0, 0.8);
+}
+
+.stamp-card {
+    transition: all 0.3s ease;
+    transform-style: preserve-3d;
+}
+
+.stamp-card:hover {
+    transform: translateY(-5px) rotate(1deg);
+    box-shadow: 0 10px 20px rgba(0,0,0,0.2);
+}
+
+.stamp-image {
+    background-image: url('stamps.jpg'); /* Adjusted path */
+    background-size: cover;
+    background-position: center;
+}
+
+/* Dropdown menu styles */
+.dropdown-menu {
+    position: absolute;
+    top: 100%;
+    left: 0;
+    opacity: 0;
+    visibility: hidden;
+    transform: translateY(10px);
+    transition: all 0.3s ease;
+    z-index: 20;
+    min-width: 180px;
+    background-color: var(--marine-blue);
+}
+
+.dropdown-trigger:hover .dropdown-menu,
+.dropdown-menu:hover {
+    opacity: 1;
+    visibility: visible;
+    transform: translateY(0);
+}
+
+/* Mobile menu handling */
+@media (max-width: 768px) {
+    .dropdown-menu {
+        position: static;
+        display: none;
+        opacity: 1;
+        visibility: visible;
+        transform: none;
+        padding-left: 1.5rem;
+    }
+    
+    .dropdown-menu.active {
+        display: block;
+    }
+}
+
+/* Fixed header styles */
+.fixed-header {
+    position: fixed;
+    top: 0;
+    left: 0;
+    right: 0;
+    z-index: 1000;
+    transition: all 0.3s ease;
+    box-shadow: 0 2px 8px rgba(0, 0, 0, 0.2);
+}
+
+.fixed-header .flex-col {
+    transition: all 0.4s ease;
+    max-height: 100px;
+    opacity: 1;
+}
+
+.fixed-header.scrolled .flex-col {
+    max-height: 0;
+    opacity: 0;
+    overflow: hidden;
+    margin: 0;
+    padding: 0;
+}
+
+.fixed-header.scrolled {
+    background-color: var(--dark-blue);
+}
+
+.fixed-header nav {
+    transition: all 0.3s ease;
+}
+
+.fixed-header.scrolled nav {
+    border-top: none;
+    padding-top: 0.75rem;
+    padding-bottom: 0.75rem;
+}
+
+/* Add padding to body to prevent content from hiding behind fixed header */
+body {
+    padding-top: 120px; /* Adjusted for header height */
+    background-color: var(--light-gray);
+    color: #333;
+}
+
+@media (max-width: 768px) {
+    body {
+        padding-top: 140px; /* Taller on mobile due to stacked layout */
+    }
+    
+    .fixed-header.scrolled nav ul {
+        justify-content: center;
+    }
+}
+
+/* Button styles */
+.btn-primary {
+    background-color: var(--icon-blue);
+    color: var(--white);
+}
+
+.btn-primary:hover {
+    background-color: var(--dark-blue);
+}
+
+.btn-secondary {
+    background-color: var(--red);
+    color: var(--white);
+}
+
+.btn-secondary:hover {
+    background-color: #a50e27;
+}
+
+/* Custom accent colors */
+.accent-light-blue {
+    background-color: var(--light-blue);
+}
+
+.text-accent-blue {
+    color: var(--icon-blue);
+}
+
+.text-accent-red {
+    color: var(--red);
+}
+
+.event-card {
+    /* Background set by inline style now */
+    /* color: var(--dark-blue); Text color set by inline style now */
+} 
