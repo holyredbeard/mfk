@@ -1,0 +1,62 @@
+<!DOCTYPE html>
+<html lang="sv">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>CMS Login</title>
+    <style>
+        body { font-family: sans-serif; display: flex; justify-content: center; align-items: center; min-height: 100vh; background-color: #f0f0f0; }
+        form { background-color: white; padding: 2em; border-radius: 5px; box-shadow: 0 2px 5px rgba(0,0,0,0.1); }
+        label { display: block; margin-bottom: 0.5em; }
+        input[type="password"] { width: 100%; padding: 0.5em; margin-bottom: 1em; border: 1px solid #ccc; border-radius: 3px; box-sizing: border-box; }
+        button { padding: 0.7em 1.5em; background-color: #007bff; color: white; border: none; border-radius: 3px; cursor: pointer; }
+        .error { color: red; margin-top: 1em; }
+    </style>
+</head>
+<body>
+    <form id="login-form">
+        <h2>Logga in till CMS</h2>
+        <label for="password">Lösenord:</label>
+        <input type="password" id="password" name="password" required>
+        <button type="submit">Logga in</button>
+        <p id="error-message" class="error" style="display: none;"></p>
+    </form>
+
+    <script>
+        const form = document.getElementById('login-form');
+        const errorMessage = document.getElementById('error-message');
+        const loginUrl = '/.netlify/functions/decap-proxy/login'; // Endpoint in our function
+
+        form.addEventListener('submit', async (event) => {
+            event.preventDefault();
+            errorMessage.style.display = 'none';
+            const password = document.getElementById('password').value;
+
+            try {
+                const response = await fetch(loginUrl, {
+                    method: 'POST',
+                    headers: {
+                        'Content-Type': 'application/json',
+                    },
+                    body: JSON.stringify({ password: password })
+                });
+
+                if (response.ok) {
+                    // Successful login, the function should have set a cookie
+                    // Redirect back to the admin panel (or where the function tells us)
+                    // Check if the response indicates a redirect (might not be needed if cookie is enough)
+                     window.location.href = '/admin/'; // Redirect to admin panel
+                } else {
+                    const data = await response.json();
+                    errorMessage.textContent = data.message || 'Felaktigt lösenord eller serverfel.';
+                    errorMessage.style.display = 'block';
+                }
+            } catch (error) {
+                console.error('Login request failed:', error);
+                errorMessage.textContent = 'Kunde inte ansluta till servern.';
+                errorMessage.style.display = 'block';
+            }
+        });
+    </script>
+</body>
+</html> 

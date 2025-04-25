@@ -4,46 +4,9 @@
   <meta charset="utf-8" />
   <meta name="viewport" content="width=device-width, initial-scale=1.0" />
   <title>Innehållshantering (MFK)</title>
-  <script>
-    // Simple client-side password protection before loading Decap CMS
-    (function() {
-      const CORRECT_PASSWORD = "REPLACE_THIS_WITH_YOUR_PASSWORD"; // <<< !!! ERSÄTT DENNA TEXT !!! >>>
-      const SESSION_KEY = 'decap_session_authed';
-
-      // Check if already authenticated in this session
-      if (sessionStorage.getItem(SESSION_KEY) === 'true') {
-        return; // Already authenticated, proceed to load CMS
-      }
-
-      let attempts = 0;
-      while (attempts < 3) {
-        const enteredPassword = prompt('Ange lösenord för att komma åt CMS:');
-        
-        if (enteredPassword === null) { // User clicked Cancel
-          document.body.innerHTML = '<h1>Åtkomst nekad. Du avbröt inloggningen.</h1>';
-          throw new Error('User cancelled authentication.'); // Stop further script execution
-        }
-
-        if (enteredPassword === CORRECT_PASSWORD) {
-          sessionStorage.setItem(SESSION_KEY, 'true'); // Mark as authenticated for this session
-          return; // Correct password, proceed to load CMS
-        }
-
-        attempts++;
-        if (attempts < 3) {
-          alert('Fel lösenord. Försök igen. Försök ' + (attempts + 1) + ' av 3.');
-        } else {
-          alert('För många felaktiga försök. Åtkomst nekad.');
-          document.body.innerHTML = '<h1>Åtkomst nekad. För många felaktiga försök.</h1>';
-          throw new Error('Too many failed authentication attempts.'); // Stop further script execution
-        }
-      }
-    })();
-  </script>
 </head>
 <body>
   <!-- Include the script that builds the page and powers Decap CMS -->
-  <!-- This will only run if the script above doesn't throw an error -->
   <script src="https://unpkg.com/decap-cms@^3.0.0/dist/decap-cms.js"></script>
 </body>
 </html> 
