@@ -48,14 +48,12 @@ const octokit = new Octokit({ auth: GITHUB_TOKEN, request: { fetch } });
 exports.handler = async (event, context) => {
   console.log("Decap Proxy function invoked:", event.httpMethod, event.path);
 
-  // 1. Authentication - TEMPORARILY COMMENTED OUT FOR TESTING
-  /*
+  // 1. Authentication - RE-ENABLED
   const authError = authenticate(event);
   if (authError) {
     return authError;
   }
-  */
-  console.log("Auth Check: SKIPPED FOR TESTING");
+  // console.log("Auth Check: SKIPPED FOR TESTING"); // Removed test log
 
   // 2. Input Validation
   if (!GITHUB_REPO) {
@@ -128,6 +126,16 @@ exports.handler = async (event, context) => {
       return {
         statusCode: 200,
         body: JSON.stringify({ message: "File updated successfully" })
+      };
+
+    } else if (event.httpMethod === "GET" && decapApiPath === 'media') {
+      // Handle request for media library files
+      // For now, just return an empty array to prevent the .map error
+      // Full implementation would list files from the media folder via GitHub API
+      console.log("Handling GET request for /media. Returning empty list.");
+      return {
+        statusCode: 200,
+        body: JSON.stringify([]) // Return an empty array
       };
 
     } else if (event.httpMethod === "POST" && !decapApiPath) {
