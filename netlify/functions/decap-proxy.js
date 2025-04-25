@@ -16,19 +16,28 @@ function authenticate(event) {
     console.error("DECAP_PROXY_PASSWORD environment variable not set.");
     return { statusCode: 500, body: "Server configuration error: Missing proxy password." };
   }
-  // Decap CMS sends password in a non-standard header or query param depending on config
-  // Let's check Authorization header first (e.g., Bearer <password>)
+
+  // Log incoming headers and body for debugging auth
+  console.log("Auth Check - Headers:", JSON.stringify(event.headers, null, 2));
+  console.log("Auth Check - Body:", event.body); // Body might be null for some requests
+
   const authHeader = event.headers.authorization;
   let providedPassword = null;
   if (authHeader && authHeader.startsWith("Bearer ")) {
     providedPassword = authHeader.substring(7);
+    console.log("Auth Check: Found Bearer token.");
   }
   // Add checks for other potential ways Decap might send it if needed
 
   if (providedPassword !== PROXY_PASSWORD) {
-    console.warn("Proxy authentication failed.");
-    return { statusCode: 401, body: "Unauthorized" };
+    console.warn("Proxy authentication failed. Provided password/token does not match expected PROXY_PASSWORD.");
+    // Return a JSON body for the error
+    return { 
+      statusCode: 401, 
+      body: JSON.stringify({ message: "Unauthorized" }) 
+    };
   }
+  console.log("Auth Check: Successful.");
   return null; // Authentication successful
 }
 
