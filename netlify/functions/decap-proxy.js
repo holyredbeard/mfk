@@ -138,15 +138,6 @@ exports.handler = async (event, context) => {
         body: JSON.stringify([]) // Return an empty array
       };
 
-    } else if (event.httpMethod === "POST" && !decapApiPath) {
-       // Handle the initial POST request from Decap CMS to the base proxy URL
-       // This is likely a status check or initial auth handshake (which we are skipping)
-       console.log("Handling initial POST request to base proxy URL.");
-       return {
-         statusCode: 200,
-         body: JSON.stringify({ status: "Proxy OK" }) // Send a simple success response
-       };
-
     } else {
       // Handle other methods/paths (e.g., /media, /git) if needed in the future
       console.warn(`Unhandled path or method: ${event.httpMethod} ${decapApiPath}`);
