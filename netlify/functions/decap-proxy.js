@@ -43,6 +43,12 @@ const octokit = new Octokit({ auth: GITHUB_TOKEN, request: { fetch } });
 
 // --- Main Handler ---
 exports.handler = async (event, context) => {
+  // Check JWT_SECRET existence early
+  if (!JWT_SECRET) {
+     console.error("FATAL: JWT_SECRET environment variable is not set!");
+     return { statusCode: 500, body: JSON.stringify({ message: "Server configuration error: Missing JWT secret." }) };
+  }
+
   const functionPath = event.path.replace('/.netlify/functions/decap-proxy', '') || '/';
   console.log("Decap Proxy invoked:", event.httpMethod, functionPath);
 
@@ -89,26 +95,31 @@ exports.handler = async (event, context) => {
   }
 
   // --- Check Authentication for all other requests ---
+  console.log(`Checking authentication for path: ${functionPath}`); // Log before check
   const isAuthenticated = verifyAuth(event);
+
   if (!isAuthenticated) {
+    console.log(`Authentication result for ${functionPath}: FAILED (isAuthenticated is ${isAuthenticated})`); // Log check result
      // Not authenticated, redirect to login page (unless it's the login page itself)
     if (functionPath !== '/login') { // Avoid redirect loop
-      console.log("User not authenticated, redirecting to login page.");
+      const redirectUrl = '/admin-login.html';
+      console.log(`User not authenticated for path: ${functionPath}. Preparing redirect to ${redirectUrl}.`); // Log redirect intent
       return {
-        statusCode: 302, // Found (Temporary Redirect)
+        statusCode: 302,
         headers: {
-          'Location': '/admin-login.html',
-          // Clear potentially invalid cookie
+          'Location': redirectUrl,
           'Set-Cookie': cookie.serialize(AUTH_COOKIE_NAME, '', { httpOnly: true, secure: true, path: '/', expires: new Date(0) }) 
         },
         body: ''
       };
     }
     // If it *was* the login path but somehow failed verifyAuth, still deny access
-     return { statusCode: 401, body: JSON.stringify({ message: "Authentication required." }) };
+    console.warn(`Authentication failed for login path.`); 
+    return { statusCode: 401, body: JSON.stringify({ message: "Authentication required." }) };
   }
 
   // --- Authenticated User: Handle Decap CMS API Requests ---
+  console.log(`Authentication result for ${functionPath}: SUCCESS. Proceeding...`); // Log success
   console.log("User authenticated, proceeding with API request:", functionPath);
   try {
     // Reuse existing logic, but ensure functionPath matches expected Decap API paths
